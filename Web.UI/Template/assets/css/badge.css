@@ -1,0 +1,131 @@
+﻿body {
+    background-color: #f9f9fa
+}
+
+.flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+@media (max-width:991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+}
+
+@media (max-width:767.98px) {
+    .padding {
+        padding: 1rem
+    }
+}
+
+.padding {
+    padding: 5rem
+}
+
+.stretch-card {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    -webkit-justify-content: stretch;
+    justify-content: stretch
+}
+
+.grid-margin {
+    margin-bottom: 1.875rem
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #d2d2dc;
+    border-radius: 0
+}
+
+    .card .card-body {
+        padding: 1.25rem 1.75rem
+    }
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem
+}
+
+.card .card-title {
+    color: #000000;
+    margin-bottom: 0.625rem;
+    text-transform: capitalize;
+    font-size: 0.875rem;
+    font-weight: 500
+}
+
+.card .card-description {
+    margin-bottom: .875rem;
+    font-weight: 400;
+    color: #76838f
+}
+
+p {
+    font-size: 0.875rem;
+    margin-bottom: .5rem;
+    line-height: 1.5rem
+}
+
+.table thead th,
+.jsgrid .jsgrid-table thead th {
+    border-top: 0;
+    border-bottom-width: 1px;
+    font-weight: 500;
+    font-size: .875rem;
+    text-transform: uppercase
+}
+
+.table td,
+.jsgrid .jsgrid-table td {
+    font-size: 0.875rem;
+    padding: .875rem 0.9375rem
+}
+
+.badge {
+    border-radius: 0;
+    font-size: 12px;
+    line-height: 1;
+    padding: .375rem .5625rem;
+    font-weight: bolder
+}
+
+.badge-outline-primary {
+    color: #405189;
+    border: 1px solid #405189;
+}
+
+.badge.badge-pill {
+    border-radius: 10rem;
+}
+
+.badge-outline-info {
+    color: #3da5f4;
+    border: 1px solid #3da5f4;
+}
+
+.badge-outline-danger {
+    color: #f1536e;
+    border: 1px solid #f1536e;
+}
+
+.badge-outline-success {
+    color: #00c689;
+    border: 1px solid #00c689;
+}
+
+.badge-outline-warning {
+    color: #fda006;
+    border: 1px solid #fda006;
+}

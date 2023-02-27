@@ -1,0 +1,136 @@
+﻿@using Models.UI
+@model List<EmployeeModel>
+@{
+    ViewBag.Title = "Employees List";
+}
+
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <h1>Employees List</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+<!-- cart -->
+<div class="cart-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-10 col-md-12">
+                <a href="@Url.Action("Register", "Account")" class="boxed-btn">Add New Employee</a>
+                <br />
+                <br />
+                <div class="cart-table-wrap">
+                    <table class="cart-table" id="tbEmployees">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                                <th class="product-image">Employee Id</th>
+                                <th class="product-name">Name</th>
+                                <th class="product-price">Age</th>
+                                <th class="product-quantity">Gender</th>
+                                <th class="product-quantity">Address</th>
+                                <th class="product-quantity">Current Projects</th>
+                                <th class="product-quantity">Reporting Line</th>
+                                <th class="product-quantity">Business Role</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                foreach (var user in Model)
+                                {
+                                    <tr class="table-body-row">
+                                        @*<td class="product-image">
+                                    @if (product.Image.ActualDocument != null)
+                                    {
+                                        var doc = @System.Convert.ToBase64String(product.Image.ActualDocument);
+                                        <img src="data:image;base64,@doc" width="50" height="50" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Template/assets/img/products/product-img-2.jpg" alt="">
+                                    }
+                                </td>*@
+                                        <td class="product-name">@user.EmployeeId</td>
+                                        <td class="product-price">@user.Name </td>
+                                        <td class="product-quantity">@user.Age</td>
+                                        <td class="product-quantity">@user.Gender</td>
+                                        <td class="product-quantity">@user.Email</td>
+                                        <td class="product-quantity">
+                                            @{
+                                                if (user.Projects.Count > 0)
+                                                {
+                                                    foreach (var item in user.Projects)
+                                                    {
+                                                        <span>@item.ProjectName</span>
+                                                        <br />
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <span>None</span>
+                                                }
+                                            }
+                                        </td>
+                                        <td class="product-quantity">@user.ReportingLine</td>
+                                        <td class="product-quantity">@user.Role</td>
+                                        <td>
+                                            <a href="@Url.Action("Update", "Employee", new { @id = user.EmployeeId})" class=""><i class="fas fa-user-edit"></i> Edit</a>
+                                            <br />
+                                            <a href="@Url.Action("Delete", "Employee", new { @id = user.EmployeeId})" class=""><i class="fas fa-trash-alt"></i> Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        No employees records found.
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end cart -->
+<script>
+    $(function () {
+        $('#tbEmployees').DataTable({
+            "order": [[0, "desc"]],
+            "columnDefs": [
+                {
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                }
+            ],
+            "dom": 'Bfrtip',
+            "buttons": [
+                //'copyHtml5',
+                'excelHtml5',
+                //'csvHtml5',
+                'pdfHtml5'
+            ],
+            //"pageLength": 5,
+            //"lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'Todos']]
+        })
+    })
+</script>
+

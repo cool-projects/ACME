@@ -1,0 +1,23 @@
+﻿@using Models.UI.Enums
+@if (!string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["Username"]?.ToString()))
+{
+    if (System.Web.HttpContext.Current.Session["RoleId"]?.ToString() == ((int)Models.UI.Enums.Roles.Admin).ToString())
+    {
+        <li>@Html.ActionLink("Employees List", "EmployeesList", "Employee")</li>
+    }
+    <li>@Html.ActionLink("My Profile", "Profile", "Employee")</li>
+    <li>
+        @{
+            var name = @System.Web.HttpContext.Current.Session["Username"]?.ToString();
+        }
+        <a href="#">@name</a>
+        <ul class="sub-menu">
+            <li>@Html.ActionLink("Log Out", "LogOff", "Account")</li>
+        </ul>
+    </li>
+}
+else
+{
+    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+}
